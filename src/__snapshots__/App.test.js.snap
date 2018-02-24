@@ -2,22 +2,13 @@
 
 exports[`App matches snapshot 1`] = `
 <div>
-  <Counter />
+  <Connect(CounterContainer) />
   <hr />
   <h1>
     이름 목록
   </h1>
-  <NameForm
-    onInsert={[Function]}
-    onSubmit={[Function]}
-  />
-  <NameList
-    names={
-      Array [
-        "벨로퍼트",
-        "김민준",
-      ]
-    }
-  />
+  <Connect(NamesContainer) />
+  <hr />
+  <Connect(PostContainer) />
 </div>
 `;
