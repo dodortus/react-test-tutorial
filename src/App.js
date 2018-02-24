@@ -5,12 +5,12 @@ import NameList from './components/NameList';
 
 class App extends Component {
   state = {
-    names: ['벨로퍼트', '김민준']
-  }
+    names: ['이나영', '원빈']
+  };
 
   onInsert = (name) => {
     this.setState(({names}) => ({ names: names.concat(name) }));
-  }
+  };
 
   render() {
     const { names } = this.state;

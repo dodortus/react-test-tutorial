@@ -12,11 +12,13 @@ describe('Counter', () => {
   it('matches snapshot', () => {
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
-  })
+  });
 
   // increase 가 잘 되는지 확인
   it('increases correctly', () => {
     component.getInstance().onIncrease();
+    // console.log('확인 component.getInstance()', component.getInstance());
+
     expect(component.getInstance().state.value).toBe(2); // value 값이 2인지 확인
     const tree = component.toJSON(); // re-render
     expect(tree).toMatchSnapshot(); // 스냅샷 비교

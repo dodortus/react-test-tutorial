@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow } from 'enzyme'; // shallow 컴포넌트 내부의 다른 컴포넌트는 랜더링 하지 않는 방식
 import NameForm from './NameForm';
 
 describe('NameForm', () => {
@@ -9,7 +9,7 @@ describe('NameForm', () => {
   let changed = null;
   const onInsert = (name) => {
     changed = name;
-  }
+  };
 
   it('renders correctly', () => {
     component = shallow(<NameForm onInsert={onInsert} />);
@@ -23,9 +23,11 @@ describe('NameForm', () => {
     it('has a form', () => {
       expect(component.find('form').exists()).toBe(true);
     });
+
     it('has an input', () => {
       expect(component.find('input').exists()).toBe(true);
     });
+
     it('simulates input change', () => {
       const mockedEvent = {
         target: {
@@ -36,6 +38,7 @@ describe('NameForm', () => {
       component.find('input').simulate('change', mockedEvent); 
       expect(component.state().name).toBe('hello');
     });
+
     it('simulates form submit', () => {
       const mockedEvent = {
         preventDefault: () => null // onSubmit 에서 preventDefault 를 호출하게 되므로, 가짜 함수 추가
